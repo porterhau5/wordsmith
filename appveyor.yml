@@ -1,15 +1,7 @@
 # Automatically update latest release with each commit
-#environment:
-    # Tell msys2 to add mingw64 to the path
-    #MSYSTEM: MINGW64
-    # Tell msys2 to inherit the current directory when starting the shell
-    #CHERE_INVOKING: 1
 
 before_deploy:
- #- ps: $env:VER=sls "^## " .\CHANGELOG.md | select -exp line | select -first 1 | ForEach-Object { $_.split("]")[0] } | ForEach-Object { $_.split("[")[1] }
- #- ps: Set-AppveyorBuildVariable 'ver' sls "^## " .\CHANGELOG.md | select -exp line | select -first 1 | ForEach-Object { $_.split("]")[0] } | ForEach-Object { $_.split("[")[1] }
  - ps: Set-AppveyorBuildVariable -Name VER -Value (sls "^## " .\CHANGELOG.md | select -exp line | select -first 1 | ForEach-Object { $_.split("]")[0] } | ForEach-Object { $_.split("[")[1] })
- #- ps:  -Name LIBIIO_VERSION -Value (get-content .version)
 
 deploy:
   - provider: GitHub
