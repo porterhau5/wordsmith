@@ -7,7 +7,7 @@ deploy:
   - provider: GitHub
     tag: v$(VER)
     description: 'Contains the most recent code and data archive for use with Wordsmith ($(APPVEYOR_REPO_COMMIT)). After cloning/downloading the Wordsmith repository, download `data.tar.xz` and place inside wordsmith directory.'
-    force_update: true
+    #force_update: true
     auth_token:
       secure: LGNzTMUPT4zvTNSh2VBYQ6Uy2JH0e79jONqr3bCB1yjHhTDxnGWSpmKWjRtItp2c
 
