@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [2.1.2] - 2018-01-12
+### Fixed
+ - Appveyor automatic builds
+
+
 ## [2.1.1] - 2018-01-12
 ### Added
  - Appveyor automatic builds
