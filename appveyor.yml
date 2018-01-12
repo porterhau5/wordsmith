@@ -1,10 +1,11 @@
 # Automatically update latest release with each commit
-install:
- - ps: $env:VER=sls "^## " .\CHANGELOG.md | select -exp line | select -first 1 | ForEach-Object { $_.split("]")[0] } | ForEach-Object { $_.split("[")[1] }
+before_deploy:
+ #- ps: $env:VER=sls "^## " .\CHANGELOG.md | select -exp line | select -first 1 | ForEach-Object { $_.split("]")[0] } | ForEach-Object { $_.split("[")[1] }
+ - ps: Set-AppveyorBuildVariable 'ver' '2.1.0'
 
 deploy:
   - provider: GitHub
-    tag: $env:VER
+    tag: v$(ver)
     description: 'Contains the most recent code and data archive for use with Wordsmith ($(APPVEYOR_REPO_COMMIT)). After cloning/downloading the Wordsmith repository, download `data.tar.xz` and place inside wordsmith directory.'
     force_update: true
     auth_token:
