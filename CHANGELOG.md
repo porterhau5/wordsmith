@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [2.1.1] - 2018-01-12
+### Added
+ - Appveyor automatic builds
+
+
 ## [2.1.0] - 2018-01-11
 ### Added
  - World geonames (11,332,168 new words)
